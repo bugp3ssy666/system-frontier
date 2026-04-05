@@ -1,0 +1,90 @@
+fio: this platform does not support process shared mutexes, forcing use of threads. Use the 'thread' option to get rid of this warning.
+seqread: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.41
+Starting 4 threads
+
+seqread: (groupid=0, jobs=1): err= 0: pid=21316: Fri Apr 3 15:06:49 2026
+  read: IOPS=119k, BW=465MiB/s (488MB/s)(1024MiB/2200msec)
+    clat (usec): min=4, max=552, avg= 8.01, stdev= 6.40
+     lat (usec): min=4, max=552, avg= 8.04, stdev= 6.40
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    6], 10.00th=[    6], 20.00th=[    7],
+     | 30.00th=[    7], 40.00th=[    7], 50.00th=[    8], 60.00th=[    8],
+     | 70.00th=[    8], 80.00th=[    9], 90.00th=[   10], 95.00th=[   12],
+     | 99.00th=[   30], 99.50th=[   55], 99.90th=[   87], 99.95th=[  100],
+     | 99.99th=[  133]
+   bw (  KiB/s): min=463369, max=485888, per=24.84%, avg=473501.25, stdev=10214.48, samples=4
+   iops        : min=115842, max=121472, avg=118375.25, stdev=2553.70, samples=4
+  lat (usec)   : 10=92.89%, 20=4.83%, 50=1.71%, 100=0.52%, 250=0.05%
+  lat (usec)   : 500=0.01%, 750=0.01%
+  cpu          : usr=0.00%, sys=45.48%, ctx=0, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=262144,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+seqread: (groupid=0, jobs=1): err= 0: pid=20392: Fri Apr 3 15:06:49 2026
+  read: IOPS=120k, BW=467MiB/s (490MB/s)(1024MiB/2191msec)
+    clat (usec): min=4, max=510, avg= 7.94, stdev= 6.29
+     lat (usec): min=4, max=510, avg= 7.98, stdev= 6.30
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    6], 10.00th=[    6], 20.00th=[    7],
+     | 30.00th=[    7], 40.00th=[    7], 50.00th=[    7], 60.00th=[    8],
+     | 70.00th=[    8], 80.00th=[    9], 90.00th=[   10], 95.00th=[   12],
+     | 99.00th=[   30], 99.50th=[   55], 99.90th=[   87], 99.95th=[  102],
+     | 99.99th=[  133]
+   bw (  KiB/s): min=463896, max=499528, per=24.98%, avg=476228.50, stdev=16216.54, samples=4
+   iops        : min=115974, max=124882, avg=119057.00, stdev=4054.15, samples=4
+  lat (usec)   : 10=92.27%, 20=5.58%, 50=1.57%, 100=0.52%, 250=0.05%
+  lat (usec)   : 500=0.01%, 750=0.01%
+  cpu          : usr=0.00%, sys=45.66%, ctx=0, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=262144,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+seqread: (groupid=0, jobs=1): err= 0: pid=21544: Fri Apr 3 15:06:49 2026
+  read: IOPS=119k, BW=465MiB/s (488MB/s)(1024MiB/2200msec)
+    clat (usec): min=3, max=546, avg= 7.99, stdev= 6.45
+     lat (usec): min=3, max=546, avg= 8.03, stdev= 6.45
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    6], 10.00th=[    6], 20.00th=[    7],
+     | 30.00th=[    7], 40.00th=[    7], 50.00th=[    8], 60.00th=[    8],
+     | 70.00th=[    8], 80.00th=[    9], 90.00th=[   10], 95.00th=[   11],
+     | 99.00th=[   31], 99.50th=[   54], 99.90th=[   86], 99.95th=[  101],
+     | 99.99th=[  131]
+   bw (  KiB/s): min=463385, max=485872, per=24.84%, avg=473501.25, stdev=10208.19, samples=4
+   iops        : min=115846, max=121468, avg=118375.25, stdev=2552.13, samples=4
+  lat (usec)   : 4=0.01%, 10=92.99%, 20=4.71%, 50=1.74%, 100=0.51%
+  lat (usec)   : 250=0.05%, 500=0.01%, 750=0.01%
+  cpu          : usr=0.00%, sys=45.48%, ctx=0, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=262144,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+seqread: (groupid=0, jobs=1): err= 0: pid=25160: Fri Apr 3 15:06:49 2026
+  read: IOPS=126k, BW=492MiB/s (515MB/s)(1024MiB/2083msec)
+    clat (usec): min=4, max=10980, avg= 7.59, stdev=22.92
+     lat (usec): min=4, max=10981, avg= 7.63, stdev=22.92
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    6], 10.00th=[    6], 20.00th=[    6],
+     | 30.00th=[    6], 40.00th=[    7], 50.00th=[    7], 60.00th=[    7],
+     | 70.00th=[    8], 80.00th=[    8], 90.00th=[    9], 95.00th=[   11],
+     | 99.00th=[   30], 99.50th=[   55], 99.90th=[   93], 99.95th=[  128],
+     | 99.99th=[  306]
+   bw (  KiB/s): min=473053, max=519872, per=26.43%, avg=503909.25, stdev=20969.79, samples=4
+   iops        : min=118263, max=129968, avg=125977.25, stdev=5242.57, samples=4
+  lat (usec)   : 10=94.16%, 20=3.77%, 50=1.51%, 100=0.47%, 250=0.06%
+  lat (usec)   : 500=0.03%, 750=0.01%
+  lat (msec)   : 20=0.01%
+  cpu          : usr=0.00%, sys=48.03%, ctx=0, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=262144,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=1862MiB/s (1952MB/s), 465MiB/s-492MiB/s (488MB/s-515MB/s), io=4096MiB (4295MB), run=2083-2200msec
