@@ -1,0 +1,110 @@
+========== LevelDB 任务二：长尾写延迟与 Compaction 观察 ==========
+[1/4] 正在准备随机写入参数...
+  -> MemAvailable: 15698752 KiB
+  -> 目标用户数据量: 31.4401 GiB
+  -> 预计随机写入次数: 8146380
+[2/4] 正在初始化 LevelDB...
+[3/4] 开始持续随机写入...
+  -> progress=1.22754%, ops=100000/8146380, elapsed=30.1314s, eta~=2424.48s, written~=0.38594GiB, window_P50=5us, window_P99=1232us, L0/L1/L2=7/41/184
+  -> progress=2.45508%, ops=200000/8146380, elapsed=63.1482s, eta~=2509s, written~=0.77188GiB, window_P50=5us, window_P99=1221us, L0/L1/L2=6/45/209
+  -> progress=3.68262%, ops=300000/8146380, elapsed=102.667s, eta~=2685.22s, written~=1.15782GiB, window_P50=6us, window_P99=1235us, L0/L1/L2=10/20/264
+  -> progress=4.91016%, ops=400000/8146380, elapsed=136.244s, eta~=2638.49s, written~=1.54376GiB, window_P50=6us, window_P99=1222us, L0/L1/L2=5/45/211
+  -> progress=6.1377%, ops=500000/8146380, elapsed=178.949s, eta~=2736.62s, written~=1.9297GiB, window_P50=5us, window_P99=1247us, L0/L1/L2=9/22/230
+  -> progress=7.36523%, ops=600000/8146380, elapsed=212.753s, eta~=2675.86s, written~=2.31564GiB, window_P50=5us, window_P99=1221us, L0/L1/L2=7/46/210
+  -> progress=8.59277%, ops=700000/8146380, elapsed=252.616s, eta~=2687.25s, written~=2.70158GiB, window_P50=5us, window_P99=1252us, L0/L1/L2=1/41/202
+  -> progress=9.82031%, ops=800000/8146380, elapsed=293.084s, eta~=2691.38s, written~=3.08752GiB, window_P50=5us, window_P99=1238us, L0/L1/L2=5/45/243
+  -> progress=11.0479%, ops=900000/8146380, elapsed=329.756s, eta~=2655.05s, written~=3.47346GiB, window_P50=5us, window_P99=1251us, L0/L1/L2=12/16/186
+  -> progress=12.2754%, ops=1000000/8146380, elapsed=369.649s, eta~=2641.65s, written~=3.8594GiB, window_P50=5us, window_P99=1248us, L0/L1/L2=3/44/215
+  -> progress=13.5029%, ops=1100000/8146380, elapsed=405.78s, eta~=2599.34s, written~=4.24534GiB, window_P50=5us, window_P99=1240us, L0/L1/L2=9/33/210
+  -> progress=14.7305%, ops=1200000/8146380, elapsed=448.427s, eta~=2595.79s, written~=4.63128GiB, window_P50=5us, window_P99=1258us, L0/L1/L2=0/46/199
+  -> progress=15.958%, ops=1300000/8146380, elapsed=484.987s, eta~=2554.16s, written~=5.01722GiB, window_P50=5us, window_P99=1237us, L0/L1/L2=5/46/218
+  -> progress=17.1855%, ops=1400000/8146380, elapsed=525.505s, eta~=2532.32s, written~=5.40316GiB, window_P50=5us, window_P99=1255us, L0/L1/L2=10/27/239
+  -> progress=18.4131%, ops=1500000/8146380, elapsed=580.554s, eta~=2572.39s, written~=5.7891GiB, window_P50=6us, window_P99=1278us, L0/L1/L2=1/45/227
+  -> progress=19.6406%, ops=1600000/8146380, elapsed=622.117s, eta~=2545.38s, written~=6.17504GiB, window_P50=5us, window_P99=1278us, L0/L1/L2=4/46/241
+  -> progress=20.8682%, ops=1700000/8146380, elapsed=677.423s, eta~=2568.78s, written~=6.56098GiB, window_P50=6us, window_P99=1279us, L0/L1/L2=9/43/222
+  -> progress=22.0957%, ops=1800000/8146380, elapsed=723.884s, eta~=2552.25s, written~=6.94692GiB, window_P50=5us, window_P99=1304us, L0/L1/L2=12/21/241
+  -> progress=23.3232%, ops=1900000/8146380, elapsed=776.624s, eta~=2553.2s, written~=7.33286GiB, window_P50=5us, window_P99=1280us, L0/L1/L2=3/47/221
+  -> progress=24.5508%, ops=2000000/8146380, elapsed=823.797s, eta~=2531.68s, written~=7.7188GiB, window_P50=5us, window_P99=1288us, L0/L1/L2=7/46/229
+  -> progress=25.7783%, ops=2100000/8146380, elapsed=876.911s, eta~=2524.83s, written~=8.10474GiB, window_P50=5us, window_P99=1296us, L0/L1/L2=11/19/221
+  -> progress=27.0059%, ops=2200000/8146380, elapsed=931.286s, eta~=2517.17s, written~=8.49068GiB, window_P50=5us, window_P99=1284us, L0/L1/L2=2/47/226
+  -> progress=28.2334%, ops=2300000/8146380, elapsed=979.547s, eta~=2489.91s, written~=8.87662GiB, window_P50=5us, window_P99=1299us, L0/L1/L2=5/45/192
+  -> progress=29.4609%, ops=2400000/8146380, elapsed=1034.9s, eta~=2477.89s, written~=9.26256GiB, window_P50=5us, window_P99=1287us, L0/L1/L2=10/25/261
+  -> progress=30.6885%, ops=2500000/8146380, elapsed=1084.08s, eta~=2448.45s, written~=9.6485GiB, window_P50=5us, window_P99=1326us, L0/L1/L2=1/46/232
+  -> progress=31.916%, ops=2600000/8146380, elapsed=1141.24s, eta~=2434.51s, written~=10.0344GiB, window_P50=5us, window_P99=1283us, L0/L1/L2=4/44/229
+  -> progress=33.1436%, ops=2700000/8146380, elapsed=1190.47s, eta~=2401.38s, written~=10.4204GiB, window_P50=5us, window_P99=1312us, L0/L1/L2=9/43/234
+  -> progress=34.3711%, ops=2800000/8146380, elapsed=1252.9s, eta~=2392.32s, written~=10.8063GiB, window_P50=6us, window_P99=1283us, L0/L1/L2=12/16/208
+  -> progress=35.5986%, ops=2900000/8146380, elapsed=1307.55s, eta~=2365.49s, written~=11.1923GiB, window_P50=5us, window_P99=1294us, L0/L1/L2=3/46/212
+  -> progress=36.8262%, ops=3000000/8146380, elapsed=1362.55s, eta~=2337.4s, written~=11.5782GiB, window_P50=5us, window_P99=1290us, L0/L1/L2=7/45/199
+  -> progress=38.0537%, ops=3100000/8146380, elapsed=1420.31s, eta~=2312.07s, written~=11.9641GiB, window_P50=5us, window_P99=1308us, L0/L1/L2=11/22/243
+  -> progress=39.2813%, ops=3200000/8146380, elapsed=1474.69s, eta~=2279.49s, written~=12.3501GiB, window_P50=5us, window_P99=1315us, L0/L1/L2=2/46/198
+  -> progress=40.5088%, ops=3300000/8146380, elapsed=1534.53s, eta~=2253.61s, written~=12.736GiB, window_P50=5us, window_P99=1281us, L0/L1/L2=5/48/237
+  -> progress=41.7363%, ops=3400000/8146380, elapsed=1585.89s, eta~=2213.9s, written~=13.122GiB, window_P50=5us, window_P99=1341us, L0/L1/L2=10/26/254
+  -> progress=42.9639%, ops=3500000/8146380, elapsed=1654.98s, eta~=2197.05s, written~=13.5079GiB, window_P50=5us, window_P99=1295us, L0/L1/L2=1/45/219
+  -> progress=44.1914%, ops=3600000/8146380, elapsed=1709.57s, eta~=2158.99s, written~=13.8938GiB, window_P50=5us, window_P99=1328us, L0/L1/L2=4/46/203
+  -> progress=45.4189%, ops=3700000/8146380, elapsed=1769.92s, eta~=2126.95s, written~=14.2798GiB, window_P50=5us, window_P99=1290us, L0/L1/L2=9/40/212
+  -> progress=46.6465%, ops=3800000/8146380, elapsed=1831.34s, eta~=2094.66s, written~=14.6657GiB, window_P50=5us, window_P99=1323us, L0/L1/L2=12/21/234
+  -> progress=47.874%, ops=3900000/8146380, elapsed=1892.36s, eta~=2060.43s, written~=15.0517GiB, window_P50=5us, window_P99=1320us, L0/L1/L2=3/44/199
+  -> progress=49.1016%, ops=4000000/8146380, elapsed=1953.38s, eta~=2024.87s, written~=15.4376GiB, window_P50=5us, window_P99=1303us, L0/L1/L2=7/46/225
+  -> progress=50.3291%, ops=4100000/8146380, elapsed=2014.26s, eta~=1987.92s, written~=15.8235GiB, window_P50=5us, window_P99=1325us, L0/L1/L2=11/18/241
+  -> progress=51.5566%, ops=4200000/8146380, elapsed=2082.47s, eta~=1956.72s, written~=16.2095GiB, window_P50=5us, window_P99=1302us, L0/L1/L2=2/45/227
+  -> progress=52.7842%, ops=4300000/8146380, elapsed=2136.01s, eta~=1910.68s, written~=16.5954GiB, window_P50=5us, window_P99=1335us, L0/L1/L2=5/48/245
+  -> progress=54.0117%, ops=4400000/8146380, elapsed=2205.3s, eta~=1877.71s, written~=16.9814GiB, window_P50=5us, window_P99=1304us, L0/L1/L2=10/23/242
+  -> progress=55.2393%, ops=4500000/8146380, elapsed=2270.51s, eta~=1839.81s, written~=17.3673GiB, window_P50=5us, window_P99=1364us, L0/L1/L2=1/45/235
+  -> progress=56.4668%, ops=4600000/8146380, elapsed=2336.07s, eta~=1801s, written~=17.7532GiB, window_P50=6us, window_P99=1321us, L0/L1/L2=4/45/212
+  -> progress=57.6943%, ops=4700000/8146380, elapsed=2399.51s, eta~=1759.49s, written~=18.1392GiB, window_P50=6us, window_P99=1368us, L0/L1/L2=9/42/233
+  -> progress=58.9219%, ops=4800000/8146380, elapsed=2468.2s, eta~=1720.74s, written~=18.5251GiB, window_P50=5us, window_P99=1339us, L0/L1/L2=12/18/199
+  -> progress=60.1494%, ops=4900000/8146380, elapsed=2537.44s, eta~=1681.12s, written~=18.9111GiB, window_P50=5us, window_P99=1322us, L0/L1/L2=3/45/226
+  -> progress=61.377%, ops=5000000/8146380, elapsed=2598.99s, eta~=1635.48s, written~=19.297GiB, window_P50=5us, window_P99=1349us, L0/L1/L2=7/46/224
+  -> progress=62.6045%, ops=5100000/8146380, elapsed=2669.33s, eta~=1594.47s, written~=19.6829GiB, window_P50=5us, window_P99=1300us, L0/L1/L2=11/21/240
+  -> progress=63.832%, ops=5200000/8146380, elapsed=2733.39s, eta~=1548.77s, written~=20.0689GiB, window_P50=5us, window_P99=1387us, L0/L1/L2=2/46/226
+  -> progress=65.0596%, ops=5300000/8146380, elapsed=2805.65s, eta~=1506.78s, written~=20.4548GiB, window_P50=5us, window_P99=1300us, L0/L1/L2=5/45/232
+  -> progress=66.2871%, ops=5400000/8146380, elapsed=2870.06s, eta~=1459.68s, written~=20.8408GiB, window_P50=5us, window_P99=1336us, L0/L1/L2=10/23/240
+  -> progress=67.5147%, ops=5500000/8146380, elapsed=2947.82s, eta~=1418.38s, written~=21.2267GiB, window_P50=5us, window_P99=1321us, L0/L1/L2=1/45/208
+  -> progress=68.7422%, ops=5600000/8146380, elapsed=3016.36s, eta~=1371.57s, written~=21.6126GiB, window_P50=6us, window_P99=1365us, L0/L1/L2=4/47/215
+  -> progress=69.9697%, ops=5700000/8146380, elapsed=3087.59s, eta~=1325.16s, written~=21.9986GiB, window_P50=6us, window_P99=1372us, L0/L1/L2=9/38/205
+  -> progress=71.1973%, ops=5800000/8146380, elapsed=3164.7s, eta~=1280.27s, written~=22.3845GiB, window_P50=6us, window_P99=1347us, L0/L1/L2=12/21/243
+  -> progress=72.4248%, ops=5900000/8146380, elapsed=3232.38s, eta~=1230.7s, written~=22.7705GiB, window_P50=6us, window_P99=1366us, L0/L1/L2=3/46/218
+  -> progress=73.6523%, ops=6000000/8146380, elapsed=3310.32s, eta~=1184.2s, written~=23.1564GiB, window_P50=6us, window_P99=1299us, L0/L1/L2=7/47/230
+  -> progress=74.8799%, ops=6100000/8146380, elapsed=3383.11s, eta~=1134.94s, written~=23.5423GiB, window_P50=6us, window_P99=1458us, L0/L1/L2=11/19/253
+  -> progress=76.1074%, ops=6200000/8146380, elapsed=3472.8s, eta~=1090.22s, written~=23.9283GiB, window_P50=6us, window_P99=1355us, L0/L1/L2=2/45/216
+  -> progress=77.335%, ops=6300000/8146380, elapsed=3545.49s, eta~=1039.1s, written~=24.3142GiB, window_P50=6us, window_P99=1412us, L0/L1/L2=5/45/205
+  -> progress=78.5625%, ops=6400000/8146380, elapsed=3621.99s, eta~=988.338s, written~=24.7002GiB, window_P50=6us, window_P99=1345us, L0/L1/L2=10/31/206
+  -> progress=79.79%, ops=6500000/8146380, elapsed=3701.97s, eta~=937.669s, written~=25.0861GiB, window_P50=5us, window_P99=1348us, L0/L1/L2=1/46/236
+  -> progress=81.0176%, ops=6600000/8146380, elapsed=3774.04s, eta~=884.258s, written~=25.472GiB, window_P50=5us, window_P99=1337us, L0/L1/L2=4/44/196
+  -> progress=82.2451%, ops=6700000/8146380, elapsed=3855.14s, eta~=832.239s, written~=25.858GiB, window_P50=6us, window_P99=1377us, L0/L1/L2=9/42/230
+  -> progress=83.4727%, ops=6800000/8146380, elapsed=3931s, eta~=778.327s, written~=26.2439GiB, window_P50=6us, window_P99=1517us, L0/L1/L2=12/17/246
+  -> progress=84.7002%, ops=6900000/8146380, elapsed=4020.41s, eta~=726.225s, written~=26.6299GiB, window_P50=6us, window_P99=1351us, L0/L1/L2=3/46/231
+  -> progress=85.9277%, ops=7000000/8146380, elapsed=4092.78s, eta~=670.269s, written~=27.0158GiB, window_P50=6us, window_P99=1445us, L0/L1/L2=7/46/226
+  -> progress=87.1553%, ops=7100000/8146380, elapsed=4181.04s, eta~=616.191s, written~=27.4017GiB, window_P50=7us, window_P99=1371us, L0/L1/L2=11/21/223
+  -> progress=88.3828%, ops=7200000/8146380, elapsed=4266.37s, eta~=560.778s, written~=27.7877GiB, window_P50=6us, window_P99=1430us, L0/L1/L2=2/45/233
+  -> progress=89.6104%, ops=7300000/8146380, elapsed=4350.92s, eta~=504.456s, written~=28.1736GiB, window_P50=7us, window_P99=1395us, L0/L1/L2=5/44/202
+  -> progress=90.8379%, ops=7400000/8146380, elapsed=4434.27s, eta~=447.25s, written~=28.5596GiB, window_P50=6us, window_P99=1412us, L0/L1/L2=10/27/253
+  -> progress=92.0654%, ops=7500000/8146380, elapsed=4517.62s, eta~=389.347s, written~=28.9455GiB, window_P50=6us, window_P99=1351us, L0/L1/L2=1/45/221
+  -> progress=93.293%, ops=7600000/8146380, elapsed=4599.9s, eta~=330.696s, written~=29.3314GiB, window_P50=5us, window_P99=1305us, L0/L1/L2=4/47/233
+  -> progress=94.5205%, ops=7700000/8146380, elapsed=4673.65s, eta~=270.938s, written~=29.7174GiB, window_P50=5us, window_P99=1396us, L0/L1/L2=9/40/240
+  -> progress=95.7481%, ops=7800000/8146380, elapsed=4765.86s, eta~=211.641s, written~=30.1033GiB, window_P50=6us, window_P99=1349us, L0/L1/L2=12/21/228
+  -> progress=96.9756%, ops=7900000/8146380, elapsed=4849.2s, eta~=151.234s, written~=30.4893GiB, window_P50=6us, window_P99=1390us, L0/L1/L2=3/44/241
+  -> progress=98.2031%, ops=8000000/8146380, elapsed=4936.94s, eta~=90.3337s, written~=30.8752GiB, window_P50=6us, window_P99=1307us, L0/L1/L2=7/46/223
+  -> progress=99.4307%, ops=8100000/8146380, elapsed=5021.69s, eta~=28.7538s, written~=31.2611GiB, window_P50=6us, window_P99=1424us, L0/L1/L2=11/19/233
+
+========== 测试报告 ==========
+随机写入总耗时: 5061.71 秒
+成功写入次数: 8146380
+写入吞吐: 1609.41 writes/sec
+P50 写延迟:   5 us
+P90 写延迟:   1138 us
+P99 写延迟:   1308 us
+P99.9 写延迟: 11200 us
+
+========== LevelDB Compaction Stats ==========
+                               Compactions
+Level  Files Size(MB) Time(sec) Read(MB) Write(MB)
+--------------------------------------------------
+  0        9       36       179        0     32705
+  1       25       41       397    52291     52292
+  2      253      336      1119   134124    134136
+  3     2223     2999      1539   189523    189532
+  4    15397    29999      1099   119913    119904
+  5      920     1797         0        0         0
+
+窗口延迟 CSV 已输出到: leveldb_task2_latency.csv

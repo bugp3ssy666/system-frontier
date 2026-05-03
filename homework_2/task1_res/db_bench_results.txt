@@ -1,0 +1,33 @@
+### BASE
+fillseq      :       6.066 micros/op;  163.5 MB/s
+fillrandom   :      53.636 micros/op;   18.5 MB/s
+readseq      :       0.306 micros/op; 3244.3 MB/s
+readrandom   :       4.944 micros/op; (1325591 of 2097152 found)
+
+### write_buffer_size=16MB
+fillseq      :       5.038 micros/op;  196.9 MB/s
+fillrandom   :      39.158 micros/op;   25.3 MB/s
+readseq      :       0.432 micros/op; 2296.5 MB/s
+readrandom   :       8.637 micros/op; (1325591 of 2097152 found)
+
+### write_buffer_size=64MB
+fillseq      :       3.542 micros/op;  280.0 MB/s
+fillrandom   :      20.432 micros/op;   48.5 MB/s
+readseq      :       0.388 micros/op; 2558.6 MB/s
+readrandom   :       7.966 micros/op; (1325591 of 2097152 found)
+
+### block_size=16KB
+fillseq      :       6.158 micros/op;  161.1 MB/s
+fillrandom   :      61.856 micros/op;   16.0 MB/s
+readseq      :       0.268 micros/op; 3705.9 MB/s
+readrandom   :       5.875 micros/op; (1325591 of 2097152 found)
+
+### block_size=64KB
+fillseq      :       6.555 micros/op;  151.3 MB/s
+fillrandom   :      60.567 micros/op;   16.4 MB/s
+readseq      :       0.256 micros/op; 3879.8 MB/s
+readrandom   :       6.793 micros/op; (1325591 of 2097152 found)
+
+### filter_policy=BloomFilter_10_bits_per_key
+readrandom   :       5.593 micros/op; (1323466 of 2097152 found)
+
